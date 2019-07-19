@@ -1,0 +1,35 @@
+service: pdf-service
+provider:
+  name: aws
+  runtime: python3.7
+  # Set environment variable for the S3 bucket
+  environment:
+    S3_BUCKET_NAME: ${file(./config.yml):BucketName}
+  # Gives our functions full read and write access to the S3 Bucket
+  iamRoleStatements:
+    -  Effect: "Allow"
+       Action:
+         - "s3:*"
+       Resource:
+          - arn:aws:s3:::${file(./config.yml):BucketName}
+          - arn:aws:s3:::${file(./config.yml):BucketName}/*
+functions:
+  generate_pdf:
+    handler: handler.generate_pdf
+    events:
+      - http:
+          path: new-pdf
+          method: post
+          cors: true
+resources:
+ # Creates an S3 bucket in our AWS account
+ Resources:
+   NewResource:
+     Type: AWS::S3::Bucket
+     Properties:
+       BucketName: ${file(./config.yml):BucketName}
+custom:
+  pythonRequirements:
+    dockerizePip: true
+plugins:
+  - serverless-python-requirements
