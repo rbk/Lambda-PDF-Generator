@@ -12,8 +12,8 @@ This repository hosts the code and content for an article I wrote about creating
 
 ## Links
 
-[Medium]()
-[Dev.to]()
-[My Blog]()
+[Medium](https://medium.com/@_rich/richard-keller-61d9cb0f430)
+[Dev.to](https://dev.to/_rich/building-a-pdf-generator-on-aws-lambda-with-python3-and-wkhtmltopdf-50kl)
+[My Blog](https://blog.richardkeller.net/building-a-pdf-generator-on-aws-lambda-with-python3-and-wkhtmltopdf/)
 
 ***Copyright 06/23/2019. Richard Keller.***
