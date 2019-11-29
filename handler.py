@@ -13,6 +13,11 @@ def generate_pdf(event, context):
     key = 'deafult-filename.pdf'
     html = "<html><head></head><body><h1>It works! This is the default PDF.</h1></body></html>"
     
+    # TODO: Validate filename and html exist
+    # TODO: Clean the filename
+    # TODO: Add .pdf extension if necessary
+    # TODO: Add a UUID to the key
+
     # Decode json and set values for our pdf    
     if 'body' in event:
         data = json.loads(event['body'])
